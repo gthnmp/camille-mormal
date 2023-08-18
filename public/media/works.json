@@ -1,0 +1,93 @@
+[
+  {
+    "home": {
+      "src": "/media/works/gucci/home.jpg",
+      "dimension": [1920, 1080],
+      "position":0.5
+      
+    },
+    "hero": {
+      "src": "/media/works/gucci/hero.jpg",
+      "dimension": [2200, 1080]    
+    }
+  },
+  {
+    "home": {
+      "src": "/media/works/samsung/home.jpg",
+      "dimension": [1920, 1080],
+      "position":0.5
+      
+    },
+    "hero": {
+      "src": "/media/works/samsung/hero.jpg",
+      "dimension": [2200, 1080]
+    }
+  },
+  {
+    "home": {
+      "src": "/media/works/rituals/home.jpg",
+      "dimension": [1920, 1080],
+      "position":1
+      
+    },
+    "hero": {
+      "src": "/media/works/rituals/hero.jpg",
+      "dimension": [2200, 1080]
+    }
+  },
+  {
+    "home": {
+      "src": "/media/works/mocco/home.jpg",
+      "dimension": [1920, 1080],
+      "position":1
+    },
+    "hero": {
+      "src": "/media/works/mocco/hero.jpg",
+      "dimension": [2200, 1080]
+    }
+  },
+  {
+    "home": {
+      "src": "/media/works/sennheiser/home.jpg",
+      "dimension": [1920, 1080],
+      "position":1
+    },
+    "hero": {
+      "src": "/media/works/sennheiser/hero.jpg",
+      "dimension": [2200, 1080]
+    }
+  },
+  {
+    "home": {
+      "src": "/media/works/swarovski/home.jpg",
+      "dimension": [1920, 1080],
+      "position":1
+    },
+    "hero": {
+      "src": "/media/works/swarovski/hero.jpg",
+      "dimension": [2200, 1080]
+    }
+  },
+  {
+    "home": {
+      "src": "/media/works/activa/home.jpg",
+      "dimension": [1920, 1080],
+      "position":1.5
+    },
+    "hero": {
+      "src": "/media/works/activa/hero.jpg",
+      "dimension": [2200, 1080]
+    }
+  },
+  {
+    "home": {
+      "src": "/media/works/saeco/home.jpg",
+      "dimension": [1920, 1080],
+      "position":1.5
+    },
+    "hero": {
+      "src": "/media/works/saeco/hero.jpg",
+      "dimension": [2200, 1080]
+    }
+  }
+]
