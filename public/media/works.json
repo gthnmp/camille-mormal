@@ -50,7 +50,7 @@
     "home": {
       "src": "/media/works/sennheiser/home.jpg",
       "dimension": [1920, 1080],
-      "position":1
+      "position":1.25
     },
     "hero": {
       "src": "/media/works/sennheiser/hero.jpg",
@@ -61,7 +61,7 @@
     "home": {
       "src": "/media/works/swarovski/home.jpg",
       "dimension": [1920, 1080],
-      "position":1
+      "position":1.25
     },
     "hero": {
       "src": "/media/works/swarovski/hero.jpg",
