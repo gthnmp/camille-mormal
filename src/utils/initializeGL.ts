@@ -4,6 +4,7 @@ import createProgram from "./createProgram";
 import vertexShaderSource from './shaders/vertexShader.glsl'
 import fragmentShaderSource from './shaders/fragmentShader.glsl'
 import initTexCoordBuffer from './initializeTexCoord.ts'
+import { loadTexture } from "./loadTextures.ts";
 
 interface R {
   gl: WebGLRenderingContext,
@@ -26,7 +27,8 @@ export default function initializeGL (canvas : HTMLCanvasElement):R{
   gl.uniform2f(resolutionUniformLocation, gl.canvas.width, gl.canvas.height)
 
   initTexCoordBuffer(gl, program)
-
+  loadTexture(gl)
+  
   return {
     gl,
     program
