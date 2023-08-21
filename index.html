@@ -10,34 +10,18 @@
   <body>
     <canvas id="gl"></canvas> 
     <div id="app">
-      <nav class="fixed top-0 w-screen h-max py-8 text-white grid place-items-center">
-        <div class="flex gap-8">
-          <a href="/">
-            <p>
-              Works
-            </p>
-          </a>
-          <a href="/">
-            <p>
-              About
-            </p>
-          </a>
-        </div>
-      </nav>
-      <main class="fixed bottom-0 w-screen h-max py-8 text-white grid place-items-center">
-        <div class="flex gap-2">
-          <h1>
-            01
-          </h1>
-          <div>
-            ─ 
-          </div>
-           <h1>
-            08
-          </h1>   
-        </div>
-      </main>
     </div>
+    <nav class="fixed top-0 w-screen h-max py-8 text-white grid place-items-center z-50">
+      <div class="flex gap-8">
+        <a href="/">
+          Works
+        </a>
+        <a href="/about">
+          About
+        </a>
+      </div>
+    </nav>
     <script type="module" src="/src/runGL.ts"></script>
+    <script type="module" src="/src/routing.ts"></script>
   </body>
 </html>

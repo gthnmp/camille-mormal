@@ -51,5 +51,6 @@ const initSmoothScroll = (gap:number) => {
 
 export {
   initSmoothScroll,
+  lerp,
   mousePosition,
 };
