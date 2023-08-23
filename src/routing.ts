@@ -21,6 +21,8 @@ const addLinkListeners = () => {
       const target = e.target as HTMLAnchorElement;
 
       const { pathname } = new URL(target.href);
+      console.log(pathname);
+      
 
       if (pathname !== currentPath) {
         currentPath = pathname;
@@ -42,7 +44,7 @@ const exitAnimation = () => {
     delta = lerp(delta, target, 0.075 * 0.075) 
     delta = parseFloat(delta.toFixed(5))  
     const deltaYLocation = gl.getUniformLocation(program, 'u_deltaY')
-    gl.uniform1f(deltaYLocation, (delta * delta) * 0.5)
+    gl.uniform1f(deltaYLocation, (delta * delta ) * 0.5)
     requestAnimationFrame(animate)
   }
   animate()
@@ -56,7 +58,7 @@ const enterAnimation = () => {
     delta = parseFloat(delta.toFixed(5))
     
     const deltaYLocation = gl.getUniformLocation(program, 'u_deltaY')
-    gl.uniform1f(deltaYLocation, delta / 1.0)
+    gl.uniform1f(deltaYLocation, delta)
     requestAnimationFrame(animate)
   }
   animate()
@@ -68,10 +70,12 @@ const render = (path: string) => {
   }
   
   if (currentPath !== "/"){
+    document.title = "About"
     exitAnimation()
   }
   
   if (currentPath === "/"){
+    document.title = "Gathan Mahesa ━ Freelance Web Developer"
     enterAnimation()
   }
 

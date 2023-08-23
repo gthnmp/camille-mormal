@@ -12,47 +12,43 @@ const rectWidth = 0.35;
 const rectHeight = 1.0;
 const gap = rectWidth + 0.025;
 
-const runGL = () => {
-  const positionAttributeLocation = gl.getAttribLocation(program, 'a_position');
-  const positionBuffer = gl.createBuffer();
-  gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+const positionAttributeLocation = gl.getAttribLocation(program, 'a_position');
+const positionBuffer = gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
 
-  const imageDimesionUniformLocation = gl.getUniformLocation(program, 'u_imageDimension') 
-  gl.uniform2f(imageDimesionUniformLocation, canvas.clientWidth, canvas.clientHeight)
+const imageDimesionUniformLocation = gl.getUniformLocation(program, 'u_imageDimension') 
+gl.uniform2f(imageDimesionUniformLocation, canvas.clientWidth, canvas.clientHeight)
 
-  const containerDimesionUniformLocation = gl.getUniformLocation(program, 'u_containerDimension') 
-  gl.uniform2f(containerDimesionUniformLocation, rectWidth, rectHeight)
+const containerDimesionUniformLocation = gl.getUniformLocation(program, 'u_containerDimension') 
+gl.uniform2f(containerDimesionUniformLocation, rectWidth, rectHeight)
 
-  const timeUniformLocation = gl.getUniformLocation(program, 'u_time') 
-  const delayUniformLocation = gl.getUniformLocation(program, 'u_delay') 
+const timeUniformLocation = gl.getUniformLocation(program, 'u_time') 
+const delayUniformLocation = gl.getUniformLocation(program, 'u_delay') 
+
+function render() {
+  let mousePositionPercent = mousePosition / (gap * 7);
+  gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT)
   
-  function render() {
-    let mousePositionPercent = mousePosition / (gap * 7);
-    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT)
+  const currentTime = performance.now() / 1000.0;
+  gl.uniform1f(timeUniformLocation, currentTime);
+  
+  works.forEach((thumbnail, index) => {
+    const exitTimingDelay = 1.2 - 0.2 * (((index) + 1) % 3)
     
-    const currentTime = performance.now() / 1000.0; // Get current time in seconds
-    gl.uniform1f(timeUniformLocation, currentTime); // Update the uniform with the current time
+    new Thumbnail(gl, index * gap, 0, textureCache[index], rectWidth, rectHeight)
+    const startingPositionUniformLocation = gl.getUniformLocation(program, 'u_startingPositionPercentage')
     
-    works.forEach((thumbnail, index) => {
-      const exitTimingDelay = 1.2 - 0.1 * ((index) + 1)
-      
-      new Thumbnail(gl, index * gap, 0, textureCache[index], rectWidth, rectHeight)
-      const startingPositionUniformLocation = gl.getUniformLocation(program, 'u_startingPositionPercentage')
-      
-      gl.uniform1f(startingPositionUniformLocation, (thumbnail.home.position - mousePositionPercent))
-      gl.uniform1f(delayUniformLocation, exitTimingDelay) 
-      
-      gl.enableVertexAttribArray(positionAttributeLocation);
-      gl.vertexAttribPointer(positionAttributeLocation, 2, gl.FLOAT, false, 0, 0);
-      
-      gl.drawArrays(gl.TRIANGLES, 0, 6);
-    })
-    requestAnimationFrame(render)
-  }
-  render()
-};
-
-runGL();
+    gl.uniform1f(startingPositionUniformLocation, (thumbnail.home.position - mousePositionPercent))
+    gl.uniform1f(delayUniformLocation, exitTimingDelay) 
+    
+    gl.enableVertexAttribArray(positionAttributeLocation);
+    gl.vertexAttribPointer(positionAttributeLocation, 2, gl.FLOAT, false, 0, 0);
+    
+    gl.drawArrays(gl.TRIANGLES, 0, 6);
+  })
+  requestAnimationFrame(render)
+}
+render()
 
 if (window.location.pathname === "/"){
   initSmoothScroll(gap)

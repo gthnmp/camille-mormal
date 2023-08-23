@@ -16,3 +16,21 @@ canvas{
   justify-content: center;
   align-items: center;
 }
+
+.active-nav {
+  opacity: 1;
+  color: aqua;
+}
+
+#app a {
+  opacity: 0.5
+}
+
+#app .about {
+  width: 100vw;
+  height: 100vh;
+}
+
+.font-sans {
+  font-family: 'General Sans', sans-serif;
+}
